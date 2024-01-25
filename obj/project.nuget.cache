@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "SvGezYvKH1XbUwbH7kpcANTKhEKkcfCGwuk5dm5yr3+prpvjYPh94lU3i/AbNhXAB8Cj8r3fHb4eYV9HLTNPgw==",
+  "dgSpecHash": "Cg0hUAOb0AJIDlD6mNeMZkUIdeBHw/5Ei2jm30onxw7wne+uscjfEmn9fU0VH8xTxtu6hYuBz5eVm5Ie6CAvmg==",
   "success": true,
   "projectFilePath": "F:\\project\\MLStart\\MLStart\\MLStart.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\serilog\\3.1.1\\serilog.3.1.1.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\serilog.sinks.file\\5.0.0\\serilog.sinks.file.5.0.0.nupkg.sha512"
+    "C:\\Users\\user\\.nuget\\packages\\serilog.sinks.file\\5.0.0\\serilog.sinks.file.5.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\system.configuration.configurationmanager\\8.0.0\\system.configuration.configurationmanager.8.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\system.diagnostics.eventlog\\8.0.0\\system.diagnostics.eventlog.8.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\system.security.cryptography.protecteddata\\8.0.0\\system.security.cryptography.protecteddata.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }
