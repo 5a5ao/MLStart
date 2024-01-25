@@ -38,6 +38,14 @@ namespace App
 
             var exchengerStorage = new Storage();
             var sellerStorage = new Storage();
+
+            string currency = CurrencyName.Денежки.ToString();
+            Random rand = new Random();
+            CurrencyName randomCurrency = (CurrencyName)rand.Next(Enum.GetValues(typeof(CurrencyName)).Length);
+            string currencyCustomer = randomCurrency.ToString();
+
+
+
             
             ///
 
