@@ -6,8 +6,8 @@ namespace App
         public int capacity;
         public Storage()
         {
-            setName();
-            setCapacity();
+            name = setName().ToString();
+            capacity = setCapacity();
         }
 
         public string getName()

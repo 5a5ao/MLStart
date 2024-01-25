@@ -38,7 +38,6 @@ namespace App
 
             var exchengerStorage = new Storage();
             var sellerStorage = new Storage();
-
             
             ///
 
