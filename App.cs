@@ -29,6 +29,14 @@ namespace App
 
             Log.CloseAndFlush();
 
+            ///Этап 2 
+
+            var customer = new Person("Коротышка");
+            var firstSeller = new Person("Незнайка");
+            var secondSeller = new Person("Козлик");
+            var exchenger = new Person("Мига");
+            
+            ///
 
             /// 1 задание
             var k = new int[8];
