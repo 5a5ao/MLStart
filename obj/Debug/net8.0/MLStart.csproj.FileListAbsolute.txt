@@ -1,0 +1,5 @@
+F:\project\MLStart\MLStart\obj\Debug\net8.0\MLStart.csproj.AssemblyReference.cache
+F:\project\MLStart\MLStart\obj\Debug\net8.0\MLStart.GeneratedMSBuildEditorConfig.editorconfig
+F:\project\MLStart\MLStart\obj\Debug\net8.0\MLStart.AssemblyInfoInputs.cache
+F:\project\MLStart\MLStart\obj\Debug\net8.0\MLStart.AssemblyInfo.cs
+F:\project\MLStart\MLStart\obj\Debug\net8.0\MLStart.csproj.CoreCompileInputs.cache
