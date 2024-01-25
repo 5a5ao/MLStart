@@ -35,6 +35,9 @@ namespace App
             var firstSeller = new Person("Незнайка");
             var secondSeller = new Person("Козлик");
             var exchenger = new Person("Мига");
+
+            var exchengerStorage = new Storage();
+            var sellerStorage = new Storage();
             
             ///
 
