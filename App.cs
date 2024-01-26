@@ -44,7 +44,10 @@ namespace App
             CurrencyName randomCurrency = (CurrencyName)rand.Next(Enum.GetValues(typeof(CurrencyName)).Length);
             string currencyCustomer = randomCurrency.ToString();
 
-            Stock Stock = new Stock("d",sellerStorage);
+
+            var nameStock = new string[]{"ПАО «Газпром»","Общество гигантских растений","Яндекс","ПАО «Сбербанк»","Тинькофф Банк","Tesla","Ростелеком","Diamond Dogs","Kojima Productions"};
+            int randomIndex = rand.Next(nameStock.Length);
+            Stock Stock = new Stock(nameStock[randomIndex],sellerStorage);
 
 
             ///

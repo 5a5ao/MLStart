@@ -2,6 +2,8 @@ namespace App
 {
     public class Stock : Securities
     {
+        private Storage sellerStorage;
+
         public Stock(string name, Storage sellerStorage) : base(name)
         {
             Random rand = new Random();
@@ -10,6 +12,7 @@ namespace App
             ProfitabilityRandomiser();
             CurrentCostCalculator();
         }
+
         public Stock(string name, int countMonth, Storage sellerStorage) : base(name, countMonth)
         {
             Random rand = new Random();
