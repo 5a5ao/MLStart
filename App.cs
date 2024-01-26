@@ -44,9 +44,9 @@ namespace App
             CurrencyName randomCurrency = (CurrencyName)rand.Next(Enum.GetValues(typeof(CurrencyName)).Length);
             string currencyCustomer = randomCurrency.ToString();
 
+            Stock Stock = new Stock("d",sellerStorage);
 
 
-            
             ///
 
             /// 1 задание
@@ -58,7 +58,6 @@ namespace App
             }
 
             /// 2 задание
-            var rand = new Random();
             var x = new double[13];
 
             for (int i = 0; i < x.Length; i++)
