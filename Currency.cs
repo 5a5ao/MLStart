@@ -1,5 +1,5 @@
 namespace App
-{   enum CurrencyName
+{   public enum CurrencyName
     {
         Денежки,
         Bitcoin,
