@@ -49,6 +49,8 @@ namespace App
             int randomIndex = rand.Next(nameStock.Length);
             Stock Stock = new Stock(nameStock[randomIndex],sellerStorage);
 
+            
+
 
             ///
 
