@@ -45,8 +45,11 @@ namespace App
             string currencyCustomer = randomCurrency.ToString();
 
 
+            var nameStock = new string[]{"ПАО «Газпром»","Общество гигантских растений","Яндекс","ПАО «Сбербанк»","Тинькофф Банк","Tesla","Ростелеком","Diamond Dogs","Kojima Productions"};
+            int randomIndex = rand.Next(nameStock.Length);
+            Stock Stock = new Stock(nameStock[randomIndex],sellerStorage);
 
-            
+
             ///
 
             /// 1 задание
@@ -58,7 +61,6 @@ namespace App
             }
 
             /// 2 задание
-            var rand = new Random();
             var x = new double[13];
 
             for (int i = 0; i < x.Length; i++)

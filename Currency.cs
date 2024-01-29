@@ -2,7 +2,7 @@ namespace App
 {   enum CurrencyName
     {
         Денежки,
-        Иitcoin,
+        Bitcoin,
         Шекелей,
         Dogecoin,
         Оренов,
