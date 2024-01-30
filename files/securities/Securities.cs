@@ -2,7 +2,7 @@ namespace App
 {
     public abstract class Securities
     {
-        double currentCost;
+        public double currentCost;
         public Securities(string name)
         {
             this.name = name;
@@ -18,10 +18,10 @@ namespace App
         public double cost { get; set; }
         public int count { get; set; }
         public int countMonth { get; set; }
-        public double Profitability { get; set; }
+        public double profitability { get; set; }
         public virtual void CurrentCostCalculator()
         {
-            currentCost = cost * (Math.Pow(1 + (Profitability / 100), (countMonth / 12)));
+            currentCost = cost * (Math.Pow(1 + (profitability / 100), (countMonth / 12)));
         }
 
     }

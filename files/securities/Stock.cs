@@ -38,7 +38,7 @@ namespace App
             {
                 x1[i] = Math.Round(-12.0 + rand.NextDouble() * (15.0 + 12.0), 1);
             }
-            Profitability = x1[rand.Next(x1.Length)];
+            profitability = x1[rand.Next(x1.Length)];
         }
     }
 }

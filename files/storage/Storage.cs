@@ -4,10 +4,11 @@ namespace App
     {
         public string name;
         public int capacity;
+
         public Storage()
         {
             name = setName().ToString();
-            capacity = setCapacity();
+            setCapacity();
         }
 
         public string getName()
@@ -21,7 +22,7 @@ namespace App
             return randomName;
         }
 
-        private int setCapacity()
+        private void setCapacity()
         {
             var k = new int[8];
             Random rand = new Random();
@@ -32,13 +33,15 @@ namespace App
             }
 
             int randomIndex = rand.Next(0, k.Length);
-            return capacity = k[randomIndex];
+            capacity = k[randomIndex];
         }
 
         public int getCapacity()
         {
             return capacity;
         }
+        
+        public double wallet { get; set; }
 
     }
 }
