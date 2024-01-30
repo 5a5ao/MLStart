@@ -34,7 +34,7 @@ namespace App
             }
             else
             {
-                Console.WriteLine($"{sellerPerson.Name} не смог продать {customerPerson.Name} Акции '{securitiesItem.name}' в количестве: {countSecurities}, потому что не хватает: {(securitiesItem.count - countSecurities) * (-1)}");
+                Console.WriteLine($"{sellerPerson.Name} не смог продать {customerPerson.Name} Акции '{securitiesItem.name}' в количестве: {countSecurities}, потому что не хватает: {securitiesItem.count - countSecurities}");
             }
         }
 

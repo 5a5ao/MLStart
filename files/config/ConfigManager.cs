@@ -14,6 +14,7 @@ namespace App
             {
                 SetConfig("N", "4");
                 SetConfig("L", "7");
+                SetConfig("Thread", "3000");
             }
         }
         public static void SetConfig(string key, string value)

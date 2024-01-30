@@ -1,12 +1,5 @@
 ﻿using Serilog;
-using Serilog.Sinks.File;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Xml;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 
 namespace App
@@ -32,28 +25,32 @@ namespace App
             Log.CloseAndFlush();
 
             ///Этап 2 
+            while (true)
+            {
+                var customer = new Customer("Коротышка");
+                var firstSeller = new Seller("Незнайка");
+                var secondSeller = new Seller("Козлик");
+                var exchenger = new Seller("Мига");
+                var allCustomers = new Seller("Покупателям");
 
-            var customer = new Customer("Коротышка");
-            var firstSeller = new Seller("Незнайка");
-            var secondSeller = new Seller("Козлик");
-            var exchenger = new Seller("Мига");
-            var allCustomers = new Seller("Покупателям");
+                var exchengerStorage = new Storage();
+                var sellerStorage = new Storage();
 
-            var exchengerStorage = new Storage();
-            var sellerStorage = new Storage();
+                string currency = CurrencyName.Денежки.ToString();
+                Random rand = new Random();
+                CurrencyName randomCurrency = (CurrencyName)rand.Next(Enum.GetValues(typeof(CurrencyName)).Length);
+                string currencyCustomer = randomCurrency.ToString();
 
-            string currency = CurrencyName.Денежки.ToString();
-            Random rand = new Random();
-            CurrencyName randomCurrency = (CurrencyName)rand.Next(Enum.GetValues(typeof(CurrencyName)).Length);
-            string currencyCustomer = randomCurrency.ToString();
+                var nameStock = new string[] { "ПАО «Газпром»", "Общество гигантских растений", "Яндекс", "ПАО «Сбербанк»", "Тинькофф Банк", "Tesla", "Ростелеком", "Diamond Dogs", "Kojima Productions" };
+                int randomIndex = rand.Next(nameStock.Length);
+                Stock stock = new Stock(nameStock[randomIndex], sellerStorage);
 
-            var nameStock = new string[]{"ПАО «Газпром»","Общество гигантских растений","Яндекс","ПАО «Сбербанк»","Тинькофф Банк","Tesla","Ростелеком","Diamond Dogs","Kojima Productions"};
-            int randomIndex = rand.Next(nameStock.Length);
-            Stock stock = new Stock(nameStock[randomIndex],sellerStorage);
-
-            customer.Buy(currency,stock,10,secondSeller,sellerStorage);
-            firstSeller.Sell(currencyCustomer,stock,1000,allCustomers,sellerStorage);
-            exchenger.Exchenge(currencyCustomer,sellerStorage,exchengerStorage);
+                customer.Buy(currency, stock, rand.Next(), secondSeller, sellerStorage);
+                firstSeller.Sell(currencyCustomer, stock, rand.Next(), allCustomers, sellerStorage);
+                exchenger.Exchenge(currencyCustomer, sellerStorage, exchengerStorage);
+                Console.WriteLine();
+                Thread.Sleep(int.Parse(ConfigManager.GetConfig("Thread")));
+            }
 
             ///
 
