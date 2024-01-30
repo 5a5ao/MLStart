@@ -23,21 +23,58 @@ namespace App
         }
         private void ProfitabilityRandomiser()
         {
-            Random rand = new Random();
-            var x = new double[13];
+            var k_ = new double[8, 13];
 
-            ///1 реализация
-            for (int i = 0; i < x.Length; i++)
+            for (int i = 0; i < k_.GetLength(0); i++)
             {
-                x[i] = -12.0 + rand.NextDouble() * (15.0 + 12.0);
+                for (int j = 0; j < k_.GetLength(1); j++)
+                {
+                    double x_ = j;
+                    if (i == 9)
+                    {
+                        k_[i, j] = Math.Sin(Math.Sin(Math.Pow(x_ / (x_ + 1 / 2), x_)));
+                    }
+                    else if (i == 5 || k_[i, j] == 7 || k_[i, j] == 11 || k_[i, j] == 15)
+                    {
+                        k_[i, j] = Math.Pow((0.5 / (Math.Tan(2 * x_) + (2 / 3))), Math.Pow(Math.Pow(x_, 1 / 3), 1 / 3));
+                    }
+                    else
+                    {
+                        k_[i, j] = Math.Tan(Math.Pow(((Math.Pow(Math.E, (1 - x_) / Math.PI) / 3) / 4), 3));
+                    }
+
+                }
             }
-            ///2 реализация
-            var x1 = new double[13];
-            for (int i = 0; i < x.Length; i++)
+
+            /// 4 задание
+            int N = int.Parse(ConfigManager.GetConfig("N"));
+            int L = int.Parse(ConfigManager.GetConfig("L"));
+            Console.WriteLine($"N={L}");
+            Console.WriteLine($"L={N}");
+
+            /// 5 задание
+
+            double kMin = 0;
+            int jAvg = L % 13;
+            int iMin = N % 8;
+            double sum = 0;
+            int count = 0;
+
+            for (int j = 0; j < k_.GetLength(1); j++)
             {
-                x1[i] = Math.Round(-12.0 + rand.NextDouble() * (15.0 + 12.0), 1);
+                if (k_[iMin, j] < kMin)
+                {
+                    kMin = k_[iMin, j];
+                }
             }
-            profitability = x1[rand.Next(x1.Length)];
+
+            for (int i = 0; i < k_.GetLength(0); i++)
+            {
+                sum = k_[i, jAvg] + sum;
+                count++;
+            }
+            double kAvg = sum / count;
+            profitability = Math.Round(kMin + kAvg,4);
         }
     }
 }
