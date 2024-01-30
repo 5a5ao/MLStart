@@ -31,10 +31,11 @@ namespace App
 
             ///Этап 2 
 
-            var customer = new Person("Коротышка");
-            var firstSeller = new Person("Незнайка");
-            var secondSeller = new Person("Козлик");
-            var exchenger = new Person("Мига");
+            var customer = new Customer("Коротышка");
+            var firstSeller = new Seller("Незнайка");
+            var secondSeller = new Seller("Козлик");
+            var exchenger = new Seller("Мига");
+            var allCustomers = new Seller("Покупатели");
 
             var exchengerStorage = new Storage();
             var sellerStorage = new Storage();
@@ -44,37 +45,43 @@ namespace App
             CurrencyName randomCurrency = (CurrencyName)rand.Next(Enum.GetValues(typeof(CurrencyName)).Length);
             string currencyCustomer = randomCurrency.ToString();
 
-
             var nameStock = new string[]{"ПАО «Газпром»","Общество гигантских растений","Яндекс","ПАО «Сбербанк»","Тинькофф Банк","Tesla","Ростелеком","Diamond Dogs","Kojima Productions"};
             int randomIndex = rand.Next(nameStock.Length);
-            Stock Stock = new Stock(nameStock[randomIndex],sellerStorage);
+            Stock stock = new Stock(nameStock[randomIndex],sellerStorage);
+
+            CurrencyType randomCurrencyType = (CurrencyType)rand.Next(Enum.GetValues(typeof(CurrencyType)).Length);
+            string currencyType = randomCurrencyType.ToString();
+
+            customer.Buy(currency,stock,10,secondSeller,sellerStorage);
+            firstSeller.Sell(currencyCustomer,stock,1000,allCustomers,sellerStorage);
+            exchenger.Exchenge(currencyType,currencyCustomer,sellerStorage,exchengerStorage);
 
             
 
 
             ///
 
-            /// 1 задание
-            var k = new int[8];
+            // /// 1 задание
+            // var k = new int[8];
 
-            for (int i = 0; i < k.Length; i++)
-            {
-                k[i] = 2 * (i + 2) + 1;
-            }
+            // for (int i = 0; i < k.Length; i++)
+            // {
+            //     k[i] = 2 * (i + 2) + 1;
+            // }
 
-            /// 2 задание
-            var x = new double[13];
+            // /// 2 задание
+            // var x = new double[13];
 
-            for (int i = 0; i < x.Length; i++)
-            {
-                x[i] = -12.0 + rand.NextDouble() * (15.0 + 12.0);
-            }
+            // for (int i = 0; i < x.Length; i++)
+            // {
+            //     x[i] = -12.0 + rand.NextDouble() * (15.0 + 12.0);
+            // }
 
-            var x1 = new double[13];
-            for (int i = 0; i < x.Length; i++)
-            {
-                x1[i] = Math.Round(-12.0 + rand.NextDouble() * (15.0 + 12.0), 1);
-            }
+            // var x1 = new double[13];
+            // for (int i = 0; i < x.Length; i++)
+            // {
+            //     x1[i] = Math.Round(-12.0 + rand.NextDouble() * (15.0 + 12.0), 1);
+            // }
 
 
             /// 3 задание

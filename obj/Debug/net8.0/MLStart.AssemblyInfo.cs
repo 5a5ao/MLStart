@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MLStart")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d1648a6a1128cb0f0be83626720d7f0f93eb3049")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+98d9a215c7b2148e06dbdf40875de30e31465565")]
 [assembly: System.Reflection.AssemblyProductAttribute("MLStart")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MLStart")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
