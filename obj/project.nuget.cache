@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Cg0hUAOb0AJIDlD6mNeMZkUIdeBHw/5Ei2jm30onxw7wne+uscjfEmn9fU0VH8xTxtu6hYuBz5eVm5Ie6CAvmg==",
+  "dgSpecHash": "WM3ca0z3+VQg3o8mg9hUc/rWY1L1f0KhYJeONoJD7MwAp40wfhUKx7aOir7iarhTDmeTn3qIJPwS0W/W/IiO1A==",
   "success": true,
-  "projectFilePath": "F:\\project\\MLStart\\MLStart\\MLStart.csproj",
+  "projectFilePath": "f:\\project\\MLStart\\MLStart\\MLStart.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\serilog\\3.1.1\\serilog.3.1.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\serilog.sinks.file\\5.0.0\\serilog.sinks.file.5.0.0.nupkg.sha512",

@@ -16,10 +16,11 @@ namespace App
                 securitiesItem.count = securitiesItem.count - countSecurities;
                 moneyProfit = securitiesItem.currentCost * countSecurities;
                 sellerStorage.wallet = sellerStorage.wallet + moneyProfit;
+                Console.WriteLine($"{customerPerson.Name} купил у {sellerPerson.Name} Акции '{securitiesItem.name}' в количестве: {countSecurities}");
             }
             else
             {
-
+                Console.WriteLine($"{customerPerson.Name} не смог купить {sellerPerson.Name} Акции '{securitiesItem.name}' в количестве: {countSecurities}, потому что не хватает: {(securitiesItem.count - countSecurities)*(-1)}");
             }
         }
 

@@ -3,6 +3,7 @@ using Serilog.Sinks.File;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Xml;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,8 +16,11 @@ namespace App
 
         static void Main(string[] args)
         {
-            ConfigManager ConfigMangaer = new ConfigManager();
-            ConfigMangaer.UpdateSetting("N", "7");
+
+
+            ConfigManager configManager = new ConfigManager();
+            ConfigManager.SetConfig("N","4");
+            ConfigManager.SetConfig("L","81");
 
             Log.Logger = new LoggerConfiguration()
             .WriteTo.File("TraceLog.txt").MinimumLevel.Verbose()
@@ -35,7 +39,7 @@ namespace App
             var firstSeller = new Seller("Незнайка");
             var secondSeller = new Seller("Козлик");
             var exchenger = new Seller("Мига");
-            var allCustomers = new Seller("Покупатели");
+            var allCustomers = new Seller("Покупателям");
 
             var exchengerStorage = new Storage();
             var sellerStorage = new Storage();
@@ -49,12 +53,9 @@ namespace App
             int randomIndex = rand.Next(nameStock.Length);
             Stock stock = new Stock(nameStock[randomIndex],sellerStorage);
 
-            CurrencyType randomCurrencyType = (CurrencyType)rand.Next(Enum.GetValues(typeof(CurrencyType)).Length);
-            string currencyType = randomCurrencyType.ToString();
-
             customer.Buy(currency,stock,10,secondSeller,sellerStorage);
             firstSeller.Sell(currencyCustomer,stock,1000,allCustomers,sellerStorage);
-            exchenger.Exchenge(currencyType,currencyCustomer,sellerStorage,exchengerStorage);
+            exchenger.Exchenge(currencyCustomer,sellerStorage,exchengerStorage);
 
             
 
@@ -91,12 +92,12 @@ namespace App
             {
                 for (int j = 0; j < k_.GetLength(1); j++)
                 {
-                    double x_ = k_[i, j];
-                    if (k_[i, j] == 9)
+                    double x_ = j;
+                    if (i == 9)
                     {
                         k_[i, j] = Math.Sin(Math.Sin(Math.Pow(x_ / (x_ + 1 / 2), x_)));
                     }
-                    else if (k_[i, j] == 5 || k_[i, j] == 7 || k_[i, j] == 11 || k_[i, j] == 15)
+                    else if (i == 5 || k_[i, j] == 7 || k_[i, j] == 11 || k_[i, j] == 15)
                     {
                         k_[i, j] = Math.Pow((0.5 / (Math.Tan(2 * x_) + (2 / 3))), Math.Pow(Math.Pow(x_, 1 / 3), 1 / 3));
                     }
@@ -109,9 +110,8 @@ namespace App
             }
 
             /// 4 задание
-            int N = int.Parse(ConfigurationManager.AppSettings.Get("N"));
-            int L = int.Parse(ConfigurationManager.AppSettings.Get("L"));
-
+            int N = int.Parse(ConfigManager.GetConfig("N"));
+            int L = int.Parse(ConfigManager.GetConfig("L"));
 
             /// 5 задание
 
@@ -136,6 +136,7 @@ namespace App
             }
             double kAvg = sum / count;
             string formattedValue = (kMin + kAvg).ToString("F4");
+            Console.WriteLine($"Значение {formattedValue}");
 
 
             Console.ReadLine();
