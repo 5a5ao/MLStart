@@ -2,6 +2,6 @@ namespace App
 {
     interface IExchange
     {
-        void Exchenge(CurrencyName currencyItem, Securities securitiesItem,int currencyCount, int securitiesCount, Person customerPerson);
+        void Exchenge(CurrencyName currencyItem, CurrencyType currencyType,Storage sellerStorage, Storage exchengerStorage);
     }
 }
