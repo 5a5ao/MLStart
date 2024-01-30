@@ -17,7 +17,7 @@ namespace App
             CurrencyType randomCurrencyTypeSecond = (CurrencyType)rand.Next(Enum.GetValues(typeof(CurrencyType)).Length);
             string secondCurrency = randomCurrencyTypeSecond.ToString();
             Console.WriteLine($"{exchangerPerson.Name} забрал выручку в количестве {exchengerStorage.wallet}");
-            Console.WriteLine($"{exchangerPerson.Name} обменял {currencyItem} c {firstCurrency} на {secondCurrency} и сложил в {exchengerStorage.name}");
+            Console.WriteLine($"{exchangerPerson.Name} обменял {currencyItem} c {firstCurrency} на {secondCurrency} и сложил в {sellerStorage.getCapacity()} несгораемый {exchengerStorage.name}");
         }
         public void Sell(string currencyItem, Securities securitiesItem, int countSecurities, Person customerPerson, Storage sellerStorage)
         {
@@ -29,7 +29,7 @@ namespace App
                 moneyProfit = securitiesItem.currentCost * countSecurities;
                 sellerStorage.wallet = sellerStorage.wallet + moneyProfit;
                 Console.WriteLine($"{sellerPerson.Name} продал {customerPerson.Name} Акции '{securitiesItem.name}' в количестве: {countSecurities}");
-                Console.WriteLine($"{sellerPerson.Name} получил {currencyItem} в количестве: {moneyProfit} и сложил в {sellerStorage.name}");
+                Console.WriteLine($"{sellerPerson.Name} получил {currencyItem} в количестве: {moneyProfit} и сложил в {sellerStorage.getCapacity()} несгораемый {sellerStorage.name}");
                 Console.WriteLine($"Текущий заработок составляет {sellerStorage.wallet}");
             }
             else

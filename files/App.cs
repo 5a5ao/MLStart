@@ -19,8 +19,6 @@ namespace App
 
 
             ConfigManager configManager = new ConfigManager();
-            ConfigManager.SetConfig("N","4");
-            ConfigManager.SetConfig("L","81");
 
             Log.Logger = new LoggerConfiguration()
             .WriteTo.File("TraceLog.txt").MinimumLevel.Verbose()
@@ -56,9 +54,6 @@ namespace App
             customer.Buy(currency,stock,10,secondSeller,sellerStorage);
             firstSeller.Sell(currencyCustomer,stock,1000,allCustomers,sellerStorage);
             exchenger.Exchenge(currencyCustomer,sellerStorage,exchengerStorage);
-
-            
-
 
             ///
 

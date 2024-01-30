@@ -23,7 +23,6 @@ namespace App
         }
         private void ProfitabilityRandomiser()
         {
-
             Random rand = new Random();
             var x = new double[13];
 
