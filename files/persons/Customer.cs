@@ -1,6 +1,6 @@
 namespace App
 {
-    public record class Customer : Person,IBuy
+    public record class Customer : Person, IBuy
     {
         public Customer(string name) : base(name)
         {
@@ -20,7 +20,7 @@ namespace App
             }
             else
             {
-                Console.WriteLine($"{customerPerson.Name} не смог купить {sellerPerson.Name} Акции '{securitiesItem.name}' в количестве: {countSecurities}, потому что не хватает: {(securitiesItem.count - countSecurities)*(-1)}");
+                Console.WriteLine($"{customerPerson.Name} не смог купить {sellerPerson.Name} Акции '{securitiesItem.name}' в количестве: {countSecurities}, потому что не хватает: {(securitiesItem.count - countSecurities) * (-1)}");
             }
         }
 

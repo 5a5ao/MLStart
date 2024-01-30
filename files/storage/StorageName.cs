@@ -1,5 +1,6 @@
 namespace App
-{   enum StorageName
+{
+    enum StorageName
     {
         Шкаф,
         Ящик,

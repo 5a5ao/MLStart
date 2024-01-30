@@ -40,7 +40,7 @@ namespace App
         {
             return capacity;
         }
-        
+
         public double wallet { get; set; }
 
     }

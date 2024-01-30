@@ -1,5 +1,4 @@
 ﻿using Serilog;
-using System.Threading;
 
 
 namespace App

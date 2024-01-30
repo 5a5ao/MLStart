@@ -1,5 +1,6 @@
 namespace App
-{   public enum CurrencyType
+{
+    public enum CurrencyType
     {
         Огромные,
         Мелкие,

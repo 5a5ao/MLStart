@@ -32,7 +32,7 @@ namespace App
                 x[i] = -12.0 + rand.NextDouble() * (15.0 + 12.0);
             }
             ///2 реализация
-            var x1 = new double[13];    
+            var x1 = new double[13];
             for (int i = 0; i < x.Length; i++)
             {
                 x1[i] = Math.Round(-12.0 + rand.NextDouble() * (15.0 + 12.0), 1);
