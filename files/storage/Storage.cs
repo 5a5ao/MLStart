@@ -2,14 +2,24 @@ namespace Program;
 
 public class Storage
 {
+    #region Property
+
     public string name;
     public int capacity;
+
+    #endregion
+
+    #region .ctor
 
     public Storage()
     {
         name = setName().ToString();
         setCapacity();
     }
+
+    #endregion
+
+    #region Methods
 
     public string getName()
     {
@@ -42,5 +52,7 @@ public class Storage
     }
 
     public double wallet { get; set; }
+
+    #endregion
 
 }

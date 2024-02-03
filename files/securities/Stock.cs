@@ -2,8 +2,13 @@ namespace Program;
 
 public class Stock : Securities
 {
+    #region Data
+
     private Storage sellerStorage;
 
+    #endregion
+
+    #region .ctor
     public Stock(string name, Storage sellerStorage) : base(name)
     {
         Random rand = new Random();
@@ -21,9 +26,25 @@ public class Stock : Securities
         ProfitabilityRandomiser();
         CurrentCostCalculator();
     }
+
+    #endregion
+
+    #region Methods
     private void ProfitabilityRandomiser()
     {
+        #region MethodData
         var k_ = new double[8, 13];
+        int N = int.Parse(ConfigManager.GetConfig("N"));
+        int L = int.Parse(ConfigManager.GetConfig("L"));
+        Console.WriteLine($"N={L}");
+        Console.WriteLine($"L={N}");
+
+        double kMin = 0;
+        int jAvg = L % 13;
+        int iMin = N % 8;
+        double sum = 0;
+        int count = 0;
+        #endregion
 
         for (int i = 0; i < k_.GetLength(0); i++)
         {
@@ -45,20 +66,6 @@ public class Stock : Securities
 
             }
         }
-
-        /// 4 задание
-        int N = int.Parse(ConfigManager.GetConfig("N"));
-        int L = int.Parse(ConfigManager.GetConfig("L"));
-        Console.WriteLine($"N={L}");
-        Console.WriteLine($"L={N}");
-
-        /// 5 задание
-
-        double kMin = 0;
-        int jAvg = L % 13;
-        int iMin = N % 8;
-        double sum = 0;
-        int count = 0;
 
         for (int j = 0; j < k_.GetLength(1); j++)
         {

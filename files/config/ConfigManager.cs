@@ -6,11 +6,13 @@ namespace Program;
 public class ConfigManager
 {
     #region Data
+
     private readonly string configFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App.config");
 
     #endregion
 
     #region .ctor
+
     public ConfigManager()
     {
         if (!File.Exists(configFilePath))
@@ -24,6 +26,7 @@ public class ConfigManager
     #endregion
 
     #region Methods
+
     public static void SetConfig(string key, string value)
     {
         var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);

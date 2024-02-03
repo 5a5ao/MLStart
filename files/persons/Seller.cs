@@ -3,6 +3,7 @@ namespace Program;
 public record class Seller : Person, IExchange, ISell
 {
     #region .ctor
+
     public Seller(string name) : base(name)
     {
         Name = name;
@@ -11,6 +12,7 @@ public record class Seller : Person, IExchange, ISell
     #endregion
 
     #region Methods
+
     public void Exchenge(string currencyItem, Storage sellerStorage, Storage exchengerStorage)
     {
         Person exchangerPerson = this;

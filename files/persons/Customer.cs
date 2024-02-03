@@ -4,13 +4,16 @@ public record class Customer : Person, IBuy
 {
     
     #region .ctor
+
     public Customer(string name) : base(name)
     {
         Name = name;
     }
+
     #endregion
 
     #region Methods
+
     public void Buy(string currencyItem, Securities securitiesItem, int countSecurities, Person sellerPerson, Storage sellerStorage)
     {
         double moneyProfit;
@@ -27,6 +30,7 @@ public record class Customer : Person, IBuy
             Console.WriteLine($"{customerPerson.Name} не смог купить {sellerPerson.Name} Акции '{securitiesItem.name}' в количестве: {countSecurities}, потому что не хватает: {(securitiesItem.count - countSecurities) * (-1)}");
         }
     }
+
     #endregion
 
 }
