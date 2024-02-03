@@ -1,15 +1,12 @@
-namespace App
+namespace Program;
+public enum CurrencyType
 {
-    public enum CurrencyType
-    {
-        Гигантские,
-        Огромные,
-        Крупные,
-        Большие,
-        Обычные,
-        Маленькие,
-        Мелкие,
-        Малюсенькие,
-        Мизерные
-    }
+    Gigantic,
+    Huge,
+    Large,
+    Ordinary,
+    Small,
+    Minor,
+    Tiny,
+    Scanty
 }

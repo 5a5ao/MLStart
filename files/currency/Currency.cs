@@ -1,13 +1,12 @@
-namespace App
-{   public enum CurrencyName
-    {
-        Денежки,
-        Bitcoin,
-        Шекели,
-        Dogecoin,
-        Орены,
-        Дублоны,
-        Юани,
-        Кредиты
-    }
+namespace Program;
+public enum CurrencyName
+{
+    Money,
+    Bitcoin,
+    Шекели,
+    Dogecoin,
+    Oren,
+    Doubloons,
+    Yuan,
+    Credit
 }

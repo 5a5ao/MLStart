@@ -1,10 +1,16 @@
-namespace App
+namespace Program;
+
+public record class Person
 {
-    public record class Person
-    {
-        public string Name { get; set; }
-        public Person(string name) => Name = name;
+    #region Property
+    public string Name { get; set; }
+    
+    #endregion
 
+    #region .ctor
+    public Person(string name) => Name = name;
 
-    }
+    #endregion
+
 }
+
