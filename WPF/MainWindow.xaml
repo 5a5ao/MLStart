@@ -70,7 +70,7 @@
 
             <Grid Grid.Row="2">
                 <Border BorderBrush="#FFF44336" BorderThickness="5" Padding="5" Margin="10,10,10,10">
-                    <TextBlock Text="" TextWrapping="Wrap" Margin="10,10,10,10" IsEnabled="False"/>
+                    <TextBlock  x:Name="textBlock" TextWrapping="Wrap" Margin="10,10,10,10" IsEnabled="False"/>
                 </Border>
             </Grid>
         </Grid>
