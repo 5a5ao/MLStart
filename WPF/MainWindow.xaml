@@ -12,16 +12,13 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Grid>
-                            <!-- Определяем кликабельную область кнопки как круг -->
                             <Ellipse Fill="Transparent" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"/>
-                            <!-- Здесь находится содержимое кнопки -->
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
             <Style.Triggers>
-                <!-- Триггер для затемнения кнопки при нажатии -->
                 <Trigger Property="IsPressed" Value="True">
                     <Setter Property="Opacity" Value="0.7"/>
                 </Trigger>
@@ -30,7 +27,6 @@
 
         <ContextMenu x:Key="ContextMenu">
             <ContextMenu.Resources>
-                <!-- Стиль для MenuItem -->
                 <Style TargetType="{x:Type MenuItem}">
                     <Setter Property="Background" Value="White"/>
                     <Setter Property="Foreground" Value="#FFF44336"/>
@@ -57,7 +53,6 @@
 
             <Grid Grid.Row="0">
                 <Button Content="Menu" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" FontWeight="Bold" Background="Transparent" Foreground="#FFF44336" BorderBrush="#FFF44336" FontFamily="Arial Black" Width="80" Height="27" Click="menuClick">
-                    <!-- Привязка контекстного меню к кнопке -->
                     <Button.ContextMenu>
                         <StaticResourceExtension ResourceKey="ContextMenu"/>
                     </Button.ContextMenu>
@@ -65,10 +60,10 @@
             </Grid>
 
             <Grid Grid.Row="1">
-                <Button VerticalAlignment="Center" Style="{StaticResource RoundButtonStyle}" Margin="10,0,0,0" HorizontalAlignment="Left">
+                <Button x:Name="playButton" VerticalAlignment="Center" Style="{StaticResource RoundButtonStyle}" Margin="10,0,0,0" HorizontalAlignment="Left" Click="playClick">
                     <Image Source="F:\project\MLStart\MLStart\resources\play.png" Stretch="Uniform"/>
                 </Button>
-                <Button VerticalAlignment="Center" Style="{StaticResource RoundButtonStyle}" Margin="60,0,0,0" HorizontalAlignment="Left">
+                <Button x:Name="pauseButton" VerticalAlignment="Center" Style="{StaticResource RoundButtonStyle}" Margin="60,0,0,0" HorizontalAlignment="Left" Click="pauseClick">
                     <Image Source="F:\project\MLStart\MLStart\resources\pause.png" Stretch="Uniform"/>
                 </Button>
             </Grid>

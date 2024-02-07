@@ -21,5 +21,41 @@ public partial class MainWindow : Window
         contextMenu.IsOpen = true;
     }
 
+    private void pauseClick(object sender, RoutedEventArgs e)
+    {
+        Button pauseButton = (Button)sender;
+        Button playButton = FindButtonByName("playButton"); // Получаем кнопку воспроизведения из XAML
+
+        if (pauseButton != null && playButton != null)
+        {
+            pauseButton.IsEnabled = false;
+            pauseButton.Opacity = 0.5;
+
+            playButton.IsEnabled = true;
+            playButton.Opacity = 1.0;
+        }
+
+    }
+
+    private void playClick(object sender, RoutedEventArgs e)
+    {
+        Button playButton = (Button)sender;
+        Button pauseButton = FindButtonByName("pauseButton"); // Получаем кнопку воспроизведения из XAML
+
+        if (playButton != null && playButton != null)
+        {
+            playButton.IsEnabled = false;
+            playButton.Opacity = 0.5;
+
+            pauseButton.IsEnabled = true;
+            pauseButton.Opacity = 1.0;
+        }
+
+    }
+    private Button FindButtonByName(string name)
+    {
+        var button = (Button)FindName(name);
+        return button;
+    }
 }
 
