@@ -35,7 +35,7 @@ internal class Program
         var exchengerStorage = new Storage();
         var sellerStorage = new Storage();
 
-        string currency = CurrencyName.Денежки.ToString();
+        string currency = CurrencyName.Money.ToString();
         Random rand = new Random();
         CurrencyName randomCurrency = (CurrencyName)rand.Next(Enum.GetValues(typeof(CurrencyName)).Length);
         string currencyCustomer = randomCurrency.ToString();

@@ -83,4 +83,6 @@ public class Stock : Securities
         double kAvg = sum / count;
         profitability = Math.Round(kMin + kAvg, 4);
     }
+
+    #endregion
 }
