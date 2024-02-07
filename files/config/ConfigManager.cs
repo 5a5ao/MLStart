@@ -1,4 +1,5 @@
 using System.Configuration;
+using System.IO;
 
 
 namespace Program;
@@ -7,7 +8,7 @@ public class ConfigManager
 {
     #region Data
 
-    private readonly string configFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App.config");
+    private readonly string configFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "\\App.xaml");
 
     #endregion
 
