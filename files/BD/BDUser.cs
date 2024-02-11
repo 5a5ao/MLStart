@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Program.files.BD
+namespace Program;
+
+public class BDUser
 {
-    internal class BDUser
-    {
-    }
+    public int Id { get; set; }
+    public string Login { get; set; }
+    public string Password { get; set; }
 }

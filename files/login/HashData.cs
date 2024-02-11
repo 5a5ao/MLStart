@@ -6,7 +6,7 @@ namespace Program;
 public static class HashData
 {
 
-    static string HashValue(string hashValue)
+    public static string HashValue(string hashValue)
     {
         using (SHA256 sha256 = SHA256.Create())
         {
@@ -24,7 +24,7 @@ public static class HashData
     }
 
 
-    static bool VerifyHash(string inputValue, string hashedValue)
+    public static bool VerifyHash(string inputValue, string hashedValue)
     {
         // Получение хеша
         string inputHashValue = HashValue(inputValue);

@@ -8,10 +8,10 @@ using Npgsql;
 
 namespace Program;
 
-public static class BDConnection
+public static class BDInteraction
 {
 
-    static string  connString = "Host=myServerAddress;Port=myPort;Username=myUsername;Password=myPassword;Database=myDatabase";
+    static string connString = "Host=myServerAddress;Port=myPort;Username=myUsername;Password=myPassword;Database=myDatabase";
     public static string? outputString;
 
     public static void Connection()
@@ -31,5 +31,7 @@ public static class BDConnection
         }
 
     }
+
+
 
 }

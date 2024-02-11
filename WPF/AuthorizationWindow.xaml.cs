@@ -12,16 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Program.WPF
+namespace Program;
+
+/// <summary>
+/// Логика взаимодействия для AuthorizationWindow.xaml
+/// </summary>
+public partial class AuthorizationWindow : Window
 {
-    /// <summary>
-    /// Логика взаимодействия для AuthorizationWindow.xaml
-    /// </summary>
-    public partial class AuthorizationWindow : Window
+    public AuthorizationWindow()
     {
-        public AuthorizationWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

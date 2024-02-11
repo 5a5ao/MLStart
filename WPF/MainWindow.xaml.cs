@@ -49,14 +49,22 @@ namespace Program
                     AppendToOutput(exchanger.outputExchenge);
 
                     AppendToOutput($"Текущая ставка акций {stock.name} составляет {stock.profitability}");
-                    BDConnection.Connection();
-                    AppendToOutput(BDConnection.outputString);
+                    BDInteraction.Connection();
+                    AppendToOutput(BDInteraction.outputString);
                     outputText.Clear();
 
                     Thread.Sleep(int.Parse(ConfigManager.GetConfig("Thread")));
                 }
             });
         }
+
+        private void RegistrationInBD(string login, string password)
+        {
+            BDInteraction.Connection();
+            Registration.Login = login;
+            Registration.Password = password;
+        }
+
 
         // Метод для добавления текста в TextBlock
         private void AppendToOutput(string text)

@@ -12,16 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Program.WPF
+namespace Program;
+
+/// <summary>
+/// Логика взаимодействия для RegistrationWindow .xaml
+/// </summary>
+public partial class RegistrationWindow : Window
 {
-    /// <summary>
-    /// Логика взаимодействия для LoginWindow.xaml
-    /// </summary>
-    public partial class LoginWindow : Window
+    public RegistrationWindow()
     {
-        public LoginWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

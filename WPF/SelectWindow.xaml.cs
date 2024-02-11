@@ -12,16 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Program.WPF
+namespace Program;
+
+/// <summary>
+/// Логика взаимодействия для SelectWindow.xaml
+/// </summary>
+public partial class SelectWindow : Window
 {
-    /// <summary>
-    /// Логика взаимодействия для SelectWindow.xaml
-    /// </summary>
-    public partial class SelectWindow : Window
+    public SelectWindow()
     {
-        public SelectWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }
