@@ -40,10 +40,13 @@ namespace Program
                     Stock stock = new Stock(nameStock[randomIndex], sellerStorage);
 
                     customer.Buy(currency, stock, rand.Next(), secondSeller, sellerStorage);
+                    AppendToOutput(customer.outputString);
                     countCustomer();
 
                     firstSeller.Sell(currencyCustomer, stock, rand.Next(), allCustomers, sellerStorage);
+                    AppendToOutput(firstSeller.outputSell);
                     exchanger.Exchenge(currencyCustomer, sellerStorage, exchangerStorage);
+                    AppendToOutput(exchanger.outputExchenge);
 
                     AppendToOutput($"Текущая ставка акций {stock.name} составляет {stock.profitability}");
                     outputText.Clear();

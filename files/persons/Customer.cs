@@ -2,7 +2,12 @@ namespace Program;
 
 public record class Customer : Person, IBuy
 {
-    
+    #region Data
+
+    public string? outputString;
+
+    #endregion
+
     #region .ctor
 
     public Customer(string name) : base(name)
@@ -23,11 +28,11 @@ public record class Customer : Person, IBuy
             securitiesItem.count = securitiesItem.count - countSecurities;
             moneyProfit = securitiesItem.currentCost * countSecurities;
             sellerStorage.wallet = sellerStorage.wallet + moneyProfit;
-            Console.WriteLine($"{customerPerson.Name} купил у {sellerPerson.Name} Акции '{securitiesItem.name}' в количестве: {countSecurities}");
+            outputString = $"{customerPerson.Name} купил у {sellerPerson.Name} Акции '{securitiesItem.name}' в количестве: {countSecurities}";
         }
         else
         {
-            Console.WriteLine($"{customerPerson.Name} не смог купить {sellerPerson.Name} Акции '{securitiesItem.name}' в количестве: {countSecurities}, потому что не хватает: {(securitiesItem.count - countSecurities) * (-1)}");
+            outputString = $"{customerPerson.Name} не смог купить {sellerPerson.Name} Акции '{securitiesItem.name}' в количестве: {countSecurities}, потому что не хватает: {(securitiesItem.count - countSecurities) * (-1)}";
         }
     }
 

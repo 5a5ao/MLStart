@@ -2,13 +2,21 @@ namespace Program;
 
 public record class Seller : Person, IExchange, ISell
 {
+
+    #region Data
+
+    public string? outputExchenge;
+    public string? outputSell;
+
+    #endregion
+
     #region .ctor
 
     public Seller(string name) : base(name)
     {
         Name = name;
     }
-    
+
     #endregion
 
     #region Methods
@@ -23,8 +31,8 @@ public record class Seller : Person, IExchange, ISell
         string firstCurrency = randomCurrencyTypeFirst.ToString();
         CurrencyType randomCurrencyTypeSecond = (CurrencyType)rand.Next(Enum.GetValues(typeof(CurrencyType)).Length);
         string secondCurrency = randomCurrencyTypeSecond.ToString();
-        Console.WriteLine($"{exchangerPerson.Name} забрал выручку в количестве {exchengerStorage.wallet}");
-        Console.WriteLine($"{exchangerPerson.Name} обменял {currencyItem} c {firstCurrency} на {secondCurrency} и сложил в {sellerStorage.getCapacity()} несгораемый {exchengerStorage.name}");
+        outputExchenge = $"{exchangerPerson.Name} забрал выручку в количестве {exchengerStorage.wallet} " + "\n" +
+            $"{exchangerPerson.Name} обменял {currencyItem} c {firstCurrency} на {secondCurrency} и сложил в {sellerStorage.getCapacity()} несгораемый {exchengerStorage.name}";
     }
     public void Sell(string currencyItem, Securities securitiesItem, int countSecurities, Person customerPerson, Storage sellerStorage)
     {
@@ -35,16 +43,16 @@ public record class Seller : Person, IExchange, ISell
             securitiesItem.count = securitiesItem.count - countSecurities;
             moneyProfit = securitiesItem.currentCost * countSecurities;
             sellerStorage.wallet = sellerStorage.wallet + moneyProfit;
-            Console.WriteLine($"{sellerPerson.Name} продал {customerPerson.Name} Акции '{securitiesItem.name}' в количестве: {countSecurities}");
-            Console.WriteLine($"{sellerPerson.Name} получил {currencyItem} в количестве: {moneyProfit} и сложил в {sellerStorage.getCapacity()} несгораемый {sellerStorage.name}");
-            Console.WriteLine($"Текущий заработок составляет {sellerStorage.wallet}");
+            outputSell = $"@{sellerPerson.Name} продал {customerPerson.Name} Акции '{securitiesItem.name}' в количестве: {countSecurities}" + "\n" +
+                $"{sellerPerson.Name} получил {currencyItem} в количестве: {moneyProfit} и сложил в {sellerStorage.getCapacity()} несгораемый {sellerStorage.name}" + "\n" +
+                $"Текущий заработок составляет {sellerStorage.wallet}";
         }
         else
         {
-            Console.WriteLine($"{sellerPerson.Name} не смог продать {customerPerson.Name} Акции '{securitiesItem.name}' в количестве: {countSecurities}, потому что не хватает: {securitiesItem.count - countSecurities}");
+            outputSell = $"{sellerPerson.Name} не смог продать {customerPerson.Name} Акции '{securitiesItem.name}' в количестве: {countSecurities}, потому что не хватает: {securitiesItem.count - countSecurities}";
         }
     }
-    
+
     #endregion
 
 }
