@@ -49,6 +49,8 @@ namespace Program
                     AppendToOutput(exchanger.outputExchenge);
 
                     AppendToOutput($"Текущая ставка акций {stock.name} составляет {stock.profitability}");
+                    BDConnection.Connection();
+                    AppendToOutput(BDConnection.outputString);
                     outputText.Clear();
 
                     Thread.Sleep(int.Parse(ConfigManager.GetConfig("Thread")));
