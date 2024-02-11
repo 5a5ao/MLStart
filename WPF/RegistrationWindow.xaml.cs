@@ -23,4 +23,12 @@ public partial class RegistrationWindow : Window
     {
         InitializeComponent();
     }
+
+    private void registration(object sender, RoutedEventArgs e)
+    {
+
+        MainWindow MainWindow = new MainWindow();
+        MainWindow.Show();
+        this.Close();
+    }
 }

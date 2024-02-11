@@ -9,8 +9,8 @@
     <Grid>
 
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button Content="Registration" Width="100" Height="30" Margin="5"/>
-            <Button Content="Authorization" Width="100" Height="30" Margin="5"/>
+            <Button Content="registration" Click="registration" Width="100" Height="30" Margin="5"/>
+            <Button Content="authorization" Click="authorization" Width="100" Height="30" Margin="5"/>
         </StackPanel>
 
     </Grid>

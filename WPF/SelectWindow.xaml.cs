@@ -23,4 +23,20 @@ public partial class SelectWindow : Window
     {
         InitializeComponent();
     }
+
+    private void registration(object sender, RoutedEventArgs e)
+    {
+        // Обработка нажатия кнопки "registration"
+        RegistrationWindow registrationWindow = new RegistrationWindow();
+        registrationWindow.Show();
+        this.Close();
+    }
+
+    private void authorization(object sender, RoutedEventArgs e)
+    {
+        // Обработка нажатия кнопки "authorization"
+        AuthorizationWindow authorizationWindow = new AuthorizationWindow();
+        authorizationWindow.Show();
+        this.Close();
+    }
 }

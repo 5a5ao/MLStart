@@ -23,4 +23,11 @@ public partial class AuthorizationWindow : Window
     {
         InitializeComponent();
     }
+
+    private void authorization(object sender, RoutedEventArgs e)
+    {
+        MainWindow MainWindow = new MainWindow();
+        MainWindow.Show();
+        this.Close();
+    }
 }

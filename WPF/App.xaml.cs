@@ -13,8 +13,19 @@ public partial class App : Application
     static void Main(string[] args)
     {
         var app = new App();
-        app.InitializeComponent();
+       // app.InitializeComponent();
+
         app.Run();
+
+    }
+
+    protected override void OnStartup(StartupEventArgs e)
+    {
+        base.OnStartup(e);
+
+        // Создаем и отображаем новое окно
+        var SelectScreen = new SelectWindow();
+        SelectScreen.Show();
 
     }
 
