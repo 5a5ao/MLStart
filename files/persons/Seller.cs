@@ -43,7 +43,7 @@ public record class Seller : Person, IExchange, ISell
             securitiesItem.count = securitiesItem.count - countSecurities;
             moneyProfit = securitiesItem.currentCost * countSecurities;
             sellerStorage.wallet = sellerStorage.wallet + moneyProfit;
-            outputSell = $"@{sellerPerson.Name} продал {customerPerson.Name} Акции '{securitiesItem.name}' в количестве: {countSecurities}" + "\n" +
+            outputSell = $"{sellerPerson.Name} продал {customerPerson.Name} Акции '{securitiesItem.name}' в количестве: {countSecurities}" + "\n" +
                 $"{sellerPerson.Name} получил {currencyItem} в количестве: {moneyProfit} и сложил в {sellerStorage.getCapacity()} несгораемый {sellerStorage.name}" + "\n" +
                 $"Текущий заработок составляет {sellerStorage.wallet}";
         }
