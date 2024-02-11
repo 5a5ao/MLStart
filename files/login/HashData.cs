@@ -3,12 +3,10 @@ using System.Text;
 
 namespace Program;
 
-public static class AuthorizationHash
+public static class HashData
 {
 
-
-
-    static string HashUserAccount(string hashValue)
+    static string HashValue(string hashValue)
     {
         using (SHA256 sha256 = SHA256.Create())
         {
@@ -16,22 +14,22 @@ public static class AuthorizationHash
             byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(hashValue));
 
             // Преобразование массива байтов в строку Hex
-            StringBuilder builder = new StringBuilder();
+            StringBuilder hash = new StringBuilder();
             for (int i = 0; i < hashedBytes.Length; i++)
             {
-                builder.Append(hashedBytes[i].ToString("x2"));
+                hash.Append(hashedBytes[i].ToString("x2"));
             }
-            return builder.ToString();
+            return hash.ToString();
         }
     }
 
-    // Функция проверки логина и пароля
-    static bool VerifyHashAccount(string inputHashValue, string hashedValue)
+
+    static bool VerifyHash(string inputValue, string hashedValue)
     {
-        // Получение хеша введенных логина и пароля
-        string hashedInputUserData = HashUserAccount(inputHashValue);
+        // Получение хеша
+        string inputHashValue = HashValue(inputValue);
 
         // Сравнение хешей
-        return hashedInputUserData == hashedValue;
+        return inputHashValue == hashedValue;
     }
 }
