@@ -1,5 +1,6 @@
 using System.Configuration;
 using System.IO;
+using System.Reflection;
 
 
 namespace Program;
@@ -8,14 +9,16 @@ public class ConfigManager
 {
     #region Data
 
-    private readonly string configFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "\\App.xaml");
+    private static string configFileName = "MLStart.dll.config";
 
     #endregion
 
     #region .ctor
 
-    public ConfigManager()
+    static ConfigManager()
     {
+        string executableLocation = Assembly.GetExecutingAssembly().Location;
+        string configFilePath = Path.Combine(Path.GetDirectoryName(executableLocation), configFileName);
         if (!File.Exists(configFilePath))
         {
             SetConfig("N", "4");
