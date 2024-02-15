@@ -4,7 +4,7 @@ public record class Customer : Person, IBuy
 {
     #region Data
 
-    public string? outputString;
+    public string? outputBuy;
 
     #endregion
 
@@ -28,11 +28,11 @@ public record class Customer : Person, IBuy
             securitiesItem.count = securitiesItem.count - countSecurities;
             moneyProfit = securitiesItem.currentCost * countSecurities;
             sellerStorage.wallet = sellerStorage.wallet + moneyProfit;
-            outputString = $"{customerPerson.Name} купил у {sellerPerson.Name} Акции '{securitiesItem.name}' в количестве: {countSecurities}";
+            outputBuy = $"{customerPerson.Name} купил у {sellerPerson.Name} Акции '{securitiesItem.name}' в количестве: {countSecurities}";
         }
         else
         {
-            outputString = $"{customerPerson.Name} не смог купить {sellerPerson.Name} Акции '{securitiesItem.name}' в количестве: {countSecurities}, потому что не хватает: {(securitiesItem.count - countSecurities) * (-1)}";
+            outputBuy = $"{customerPerson.Name} не смог купить {sellerPerson.Name} Акции '{securitiesItem.name}' в количестве: {countSecurities}, потому что не хватает: {(securitiesItem.count - countSecurities) * (-1)}";
         }
     }
 

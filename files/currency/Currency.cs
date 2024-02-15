@@ -3,7 +3,8 @@ public enum CurrencyName
 {
     Money,
     Bitcoin,
-    Шекели,
+    USD,
+    RUB,
     Dogecoin,
     Oren,
     Doubloons,

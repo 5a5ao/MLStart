@@ -1,3 +1,6 @@
+using System.Windows.Controls;
+using System.Windows;
+
 namespace Program;
 
 public record class Seller : Person, IExchange, ISell
@@ -15,6 +18,7 @@ public record class Seller : Person, IExchange, ISell
     public Seller(string name) : base(name)
     {
         Name = name;
+
     }
 
     #endregion
@@ -52,6 +56,8 @@ public record class Seller : Person, IExchange, ISell
             outputSell = $"{sellerPerson.Name} не смог продать {customerPerson.Name} Акции '{securitiesItem.name}' в количестве: {countSecurities}, потому что не хватает: {securitiesItem.count - countSecurities}";
         }
     }
+
+
 
     #endregion
 

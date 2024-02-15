@@ -18,84 +18,48 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
 
-        #region Main
+      
         // Запускаем цикл while в другом потоке для избежания блокировки пользовательского интерфейса
         System.Threading.Tasks.Task.Run(() =>
         {
             while (true)
             {
-                var customer = new Customer("Коротышка");
-                var firstSeller = new Seller("Незнайка");
-                var secondSeller = new Seller("Козлик");
-                var exchanger = new Seller("Мига");
-                var allCustomers = new Seller("Покупателям");
-
-                var exchangerStorage = new Storage();
-                var sellerStorage = new Storage();
-
-                string currency = CurrencyName.Money.ToString();
-                Random rand = new Random();
-                CurrencyName randomCurrency = (CurrencyName)rand.Next(Enum.GetValues(typeof(CurrencyName)).Length);
-                string currencyCustomer = randomCurrency.ToString();
-
-                var nameStock = new string[] { "ПАО «Газпром»", "Общество гигантских растений", "Яндекс", "ПАО «Сбербанк»", "Тинькофф Банк", "Tesla", "Ростелеком", "Diamond Dogs", "Kojima Productions" };
-                int randomIndex = rand.Next(nameStock.Length);
-                Stock stock = new Stock(nameStock[randomIndex], sellerStorage);
-
-                customer.Buy(currency, stock, rand.Next(), secondSeller, sellerStorage);
-                AppendToOutput(customer.outputString);
-                countCustomer();
-
-                firstSeller.Sell(currencyCustomer, stock, rand.Next(), allCustomers, sellerStorage);
-                AppendToOutput(firstSeller.outputSell);
-                exchanger.Exchenge(currencyCustomer, sellerStorage, exchangerStorage);
-                AppendToOutput(exchanger.outputExchenge);
-
-                AppendToOutput($"Текущая ставка акций {stock.name} составляет {stock.profitability}");
-                BDInteraction.Connection();
-                AppendToOutput(BDInteraction.outputString);
-                outputText.Clear();
+                Thread.Sleep(100);
+                Storyteller storyteller = new Storyteller();
+                storyteller.TextUpdated += AppendToOutput;
+                storyteller.TellStory();
 
                 Thread.Sleep(int.Parse(ConfigManager.GetConfig("Thread")));
+
+                Dispatcher.Invoke(() =>
+                {
+                    outputText.Clear();
+                    textBlock.Text = "";
+                });
             }
         });
-        #endregion
+
     }
 
     #endregion
 
     #region Methods
 
-    //private void RegistrationInBD(string login, string password)
-    //{
-    //    BDInteraction.Connection();
-    //    Registration.Login = login;
-    //    Registration.Password = password;
-    //}
-
 
     // Метод для добавления текста в TextBlock
-    private void AppendToOutput(string text)
+    private void AppendToOutput(object sender, string newText)
     {
-        outputText.AppendLine(text);
-        // Обновляем TextBlock в UI потоке
-        Application.Current.Dispatcher.Invoke(() => { textBlock.Text = outputText.ToString(); });
-    }
-
-    void countCustomer()
-    {
-        Random rand = new Random();
-        var x = new double[13];
-        AppendToOutput($"За {x.Length} дней количество покупателей изменялось в процентном соотношении");
-
-        var x1 = new double[13];
-        for (int i = 0; i < x.Length; i++)
+        Dispatcher.Invoke(() =>
         {
-            x1[i] = Math.Round(-12.0 + rand.NextDouble() * (15.0 + 12.0), 1);
-            AppendToOutput($"В {i + 1} день {x1[i]}%");
-        }
+            outputText.AppendLine(newText);
 
+            Dispatcher.Invoke(() =>
+            {
+                textBlock.Text = outputText.ToString();
+            });
+        });
     }
+
 
     private void menuClick(object sender, RoutedEventArgs e)
     {

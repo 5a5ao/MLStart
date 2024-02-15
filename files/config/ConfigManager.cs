@@ -9,7 +9,10 @@ public class ConfigManager
 {
     #region Data
 
+    //Файл конфигурации и его местоположение
     private static string configFileName = "MLStart.dll.config";
+    private static string executableLocation = Assembly.GetExecutingAssembly().Location;
+    private static string configFilePath = Path.Combine(Path.GetDirectoryName(executableLocation), configFileName);
 
     #endregion
 
@@ -17,8 +20,6 @@ public class ConfigManager
 
     static ConfigManager()
     {
-        string executableLocation = Assembly.GetExecutingAssembly().Location;
-        string configFilePath = Path.Combine(Path.GetDirectoryName(executableLocation), configFileName);
         if (!File.Exists(configFilePath))
         {
             SetConfig("N", "4");
@@ -46,6 +47,7 @@ public class ConfigManager
         configFile.Save(ConfigurationSaveMode.Modified);
         ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
     }
+
     public static string GetConfig(string key)
     {
         return ConfigurationManager.AppSettings[key];
