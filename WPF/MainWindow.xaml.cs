@@ -1,22 +1,25 @@
-﻿using Program;
-using System;
-using System.Text;
-using System.Threading;
+﻿using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Threading;
 
 namespace Program;
 
 public partial class MainWindow : Window
 {
+    #region Data
+
     private StringBuilder outputText = new StringBuilder();
+
+    #endregion
+
+    #region .ctor
 
     public MainWindow()
     {
         InitializeComponent();
 
-        // Запускаем ваш цикл while в другом потоке для избежания блокировки пользовательского интерфейса
+        #region Main
+        // Запускаем цикл while в другом потоке для избежания блокировки пользовательского интерфейса
         System.Threading.Tasks.Task.Run(() =>
         {
             while (true)
@@ -56,7 +59,12 @@ public partial class MainWindow : Window
                 Thread.Sleep(int.Parse(ConfigManager.GetConfig("Thread")));
             }
         });
+        #endregion
     }
+
+    #endregion
+
+    #region Methods
 
     private void RegistrationInBD(string login, string password)
     {
@@ -73,6 +81,7 @@ public partial class MainWindow : Window
         // Обновляем TextBlock в UI потоке
         Application.Current.Dispatcher.Invoke(() => { textBlock.Text = outputText.ToString(); });
     }
+
     void countCustomer()
     {
         Random rand = new Random();
@@ -115,7 +124,7 @@ public partial class MainWindow : Window
     private void playClick(object sender, RoutedEventArgs e)
     {
         Button playButton = (Button)sender;
-        Button pauseButton = FindButtonByName("pauseButton"); 
+        Button pauseButton = FindButtonByName("pauseButton");
 
         if (playButton != null && playButton != null)
         {
@@ -132,5 +141,7 @@ public partial class MainWindow : Window
         var button = (Button)FindName(name);
         return button;
     }
+
+    #endregion
 }
 
