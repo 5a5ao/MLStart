@@ -11,7 +11,7 @@ namespace Program;
 public static class BDInteraction
 {
 
-    static string connString = "Host=myServerAddress;Port=myPort;Username=myUsername;Password=myPassword;Database=myDatabase";
+    static string connString = "Host=localhost;Port=5432;Username=postgres;Password=admin;Database=MLStartUsers";
     public static string? outputString;
 
     public static void Connection()
