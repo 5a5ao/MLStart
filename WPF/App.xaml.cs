@@ -1,5 +1,4 @@
-﻿using Serilog;
-using System.Windows;
+﻿using System.Windows;
 
 
 namespace Program;
@@ -9,13 +8,31 @@ namespace Program;
 /// </summary>
 public partial class App : Application
 {
+
+    #region Start
+
     [STAThread]
     static void Main(string[] args)
     {
         var app = new App();
-        app.InitializeComponent();
         app.Run();
     }
+
+    #endregion
+
+    #region Methods
+
+    protected override void OnStartup(StartupEventArgs e)
+    {
+        base.OnStartup(e);
+
+        // Создаем и отображаем новое окно
+        var SelectScreen = new SelectWindow();
+        SelectScreen.Show();
+
+    }
+
+    #endregion
 
 }
 
