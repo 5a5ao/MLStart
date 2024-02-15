@@ -66,12 +66,12 @@ public partial class MainWindow : Window
 
     #region Methods
 
-    private void RegistrationInBD(string login, string password)
-    {
-        BDInteraction.Connection();
-        Registration.Login = login;
-        Registration.Password = password;
-    }
+    //private void RegistrationInBD(string login, string password)
+    //{
+    //    BDInteraction.Connection();
+    //    Registration.Login = login;
+    //    Registration.Password = password;
+    //}
 
 
     // Метод для добавления текста в TextBlock
