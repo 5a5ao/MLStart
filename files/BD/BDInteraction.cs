@@ -77,6 +77,23 @@ namespace Program
                 }
             }
         }
+        public static bool UserCheckAuthorization(string login, string password)
+        {
+            using (NpgsqlConnection conn = Connection())
+            {
+                using (NpgsqlCommand cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = conn;
+                    string hashLogin = HashData.HashValue(login);
+                    string hashPassword = HashData.HashValue(password);
+                    cmd.CommandText = "SELECT COUNT(*) FROM users WHERE login = @login and password = @password";
+                    cmd.Parameters.AddWithValue("@login", hashLogin);
+                    cmd.Parameters.AddWithValue("@password", hashPassword);
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count == 1;
+                }
+            }
+        }
 
         #endregion
     }

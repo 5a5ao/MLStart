@@ -12,6 +12,7 @@ public partial class AuthorizationWindow : Window
     public AuthorizationWindow()
     {
         InitializeComponent();
+
     }
 
     #endregion
@@ -20,10 +21,21 @@ public partial class AuthorizationWindow : Window
 
     private void authorization(object sender, RoutedEventArgs e)
     {
-        MainWindow MainWindow = new MainWindow();
-        MainWindow.Show();
-        this.Close();
+
+        bool chekedUser = BDInteraction.UserCheckAuthorization(loginTextBox.Text, passwordTextBox.Text);
+
+        if (chekedUser)
+        {
+            MainWindow MainWindow = new MainWindow();
+            MainWindow.Show();
+            this.Close();
+        }
+        else
+        {
+            MessageBox.Show("Неверный логин или пароль", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+        };
     }
+
 
     #endregion
 }

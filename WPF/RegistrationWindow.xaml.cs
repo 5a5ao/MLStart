@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 
 namespace Program;
 
@@ -13,9 +12,6 @@ public partial class RegistrationWindow : Window
     public RegistrationWindow()
     {
         InitializeComponent();
-
-
-
     }
 
     #endregion
@@ -33,7 +29,8 @@ public partial class RegistrationWindow : Window
             MainWindow.Show();
             this.Close();
         }
-        else {
+        else
+        {
             MessageBox.Show("Пользователь с таким именем уже существует.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
         };
     }
