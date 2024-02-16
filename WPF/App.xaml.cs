@@ -14,9 +14,10 @@ public partial class App : Application
     [STAThread]
     static void Main(string[] args)
     {
-        ConfigManager configManager = new ConfigManager();
+
         var app = new App();
         app.Run();
+
     }
 
     #endregion
@@ -26,7 +27,7 @@ public partial class App : Application
     protected override void OnStartup(StartupEventArgs e)
     {
         base.OnStartup(e);
-
+        ConfigManager configManager = new ConfigManager();
         // Создаем и отображаем новое окно
         var SelectScreen = new SelectWindow();
         SelectScreen.Show();
