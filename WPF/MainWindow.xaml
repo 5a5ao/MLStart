@@ -61,10 +61,10 @@
 
             <Grid Grid.Row="1">
                 <Button x:Name="playButton" VerticalAlignment="Center" Style="{StaticResource RoundButtonStyle}" Margin="10,0,0,0" HorizontalAlignment="Left" Click="playClick">
-                    <Image Source="/MLStart;component/resources/play.png" Stretch="Uniform"/>
+                    <Image Source="/WPF/play.png" Stretch="Uniform"/>
                 </Button>
                 <Button x:Name="pauseButton" VerticalAlignment="Center" Style="{StaticResource RoundButtonStyle}" Margin="60,0,0,0" HorizontalAlignment="Left" Click="pauseClick">
-                    <Image Source="/MLStart;component/resources/pause.png" Stretch="Uniform"/>
+                    <Image Source="/WPF/pause.png" Stretch="Uniform"/>
                 </Button>
             </Grid>
 

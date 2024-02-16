@@ -36,8 +36,6 @@ public class Stock : Securities
         var k_ = new double[8, 13];
         int N = int.Parse(ConfigManager.GetConfig("N"));
         int L = int.Parse(ConfigManager.GetConfig("L"));
-        Console.WriteLine($"N={L}");
-        Console.WriteLine($"L={N}");
 
         double kMin = 0;
         int jAvg = L % 13;
