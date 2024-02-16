@@ -33,7 +33,7 @@
             <TextBlock Text="Enter Password:" Margin="0,10,0,0"/>
             <TextBox x:Name="passwordTextBox"/>
             <Button x:Name="registrationButton" Click="registration" VerticalAlignment="Center" Margin="0,20,0,0" HorizontalAlignment="Center" Style="{StaticResource RoundButtonStyle}">
-                <Image Source="F:\project\MLStart\MLStart\resources\registration.png" Height="Auto" Width="50"/>
+                <Image Source="/MLStart;component/resources/registration.png" Height="Auto" Width="50"/>
             </Button>
 
         </StackPanel>
