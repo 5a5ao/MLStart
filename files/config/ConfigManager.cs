@@ -68,9 +68,26 @@ public class ConfigManager
         configFile.Save(ConfigurationSaveMode.Modified);
     }
 
-    public static string? BdConnection(string key)
+
+    public static string? GetBdConfig(string key)
     {
-        return ConfigurationManager.AppSettings[key];
+        var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+        var postgreSql = (BdSection)configFile.GetSection("PostgreSql");
+
+        // Получаем тип объекта
+        Type type = typeof(BdSection);
+        var property = type.GetProperty(key);
+
+        if (property != null)
+        {
+            // Получаем значение свойства из объекта postgreSql
+            var value = property.GetValue(postgreSql);
+            return value?.ToString();
+        }
+        else
+        {
+            return null;
+        }
     }
 
     public static string? GetConfig(string key)

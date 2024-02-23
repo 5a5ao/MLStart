@@ -1,4 +1,5 @@
 ﻿using Npgsql;
+using System.Configuration;
 
 namespace Program
 {
@@ -6,8 +7,9 @@ namespace Program
     {
         #region Data
 
-        static string connString = "Host=localhost;Port=5432;Username=postgres;Password=admin;Database=MLStartUsers;";
+        //static string connString = "Host=localhost;Port=5432;Username=postgres;Password=admin;Database=MLStartUsers;";
         public static string? outputString;
+        static string? connString;
 
         #endregion
 
@@ -15,10 +17,10 @@ namespace Program
 
         public static NpgsqlConnection Connection()
         {
-            NpgsqlConnection conn = null;
+            GetConnection();
             try
             {
-                conn = new NpgsqlConnection(connString);
+                NpgsqlConnection? conn = new NpgsqlConnection(connString);
                 conn.Open();
                 outputString = "Успешно подключено к базе данных PostgreSQL!";
                 return conn;
@@ -28,6 +30,19 @@ namespace Program
                 outputString = "Ошибка: " + ex.Message;
                 throw;
             }
+        }
+
+        public static string GetConnection()
+        {
+            NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder();
+            builder.Host = ConfigManager.GetBdConfig("Host");
+            builder.Port = Convert.ToInt32(ConfigManager.GetBdConfig("Port"));
+            builder.Username = ConfigManager.GetBdConfig("Username");
+            builder.Password = ConfigManager.GetBdConfig("Password");
+            builder.Database = ConfigManager.GetBdConfig("DatabaseName");
+            builder.SearchPath = ConfigManager.GetBdConfig("SchemaName");
+
+            return connString = builder.ConnectionString;
         }
 
         public static void AddUser(string login, string password)
