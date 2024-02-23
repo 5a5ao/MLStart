@@ -6,7 +6,7 @@ namespace Program
     {
         #region Data
 
-        static string connString = "Host=localhost;Port=5432;Username=postgres;Password=admin;Database=MLStartUsers";
+        static string connString = "Host=localhost;Port=5432;Username=postgres;Password=admin;Database=MLStartUsers;";
         public static string? outputString;
 
         #endregion

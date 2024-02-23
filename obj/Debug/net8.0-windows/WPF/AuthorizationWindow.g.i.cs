@@ -77,7 +77,7 @@ namespace Program {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MLStart;V1.0.0.0;component/wpf/authorizationwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MLStart;component/wpf/authorizationwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\WPF\AuthorizationWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -101,7 +101,7 @@ namespace Program {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MLStart;V1.0.0.0;component/wpf/mainwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MLStart;component/wpf/mainwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\WPF\MainWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

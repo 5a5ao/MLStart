@@ -1,6 +1,5 @@
 using System.Configuration;
 using System.IO;
-using System.Reflection;
 
 
 namespace Program;
@@ -10,9 +9,8 @@ public class ConfigManager
     #region Data
 
     //Файл конфигурации и его местоположение
-    private static string configFileName = "MLStart.dll.config";
-    private static string executableLocation = Assembly.GetExecutingAssembly().Location;
-    private static string configFilePath = Path.Combine(Path.GetDirectoryName(executableLocation), configFileName);
+    private static readonly string configFileName = "MLStart.dll.config";
+    private static readonly string configFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, configFileName);
 
     #endregion
 
@@ -25,6 +23,7 @@ public class ConfigManager
             SetConfig("N", "4");
             SetConfig("L", "7");
             SetConfig("Thread", "3000");
+            SetBdConnection("localhost", "5432", "postgres", "admin", "MLStartUsers", "public");
         }
     }
 
@@ -48,7 +47,33 @@ public class ConfigManager
         ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
     }
 
-    public static string GetConfig(string key)
+    public static void SetBdConnection(string Host, string Port, string UserName, string Password, string DatabaseName, string SchemaName)
+    {
+        var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+        var postgreSql = (BdSection)configFile.GetSection("PostgreSql");
+
+        if (postgreSql == null)
+        {
+            postgreSql = new BdSection();
+            configFile.Sections.Add("PostgreSql", postgreSql);
+        }
+
+        postgreSql.Host = Host;
+        postgreSql.Port = Port;
+        postgreSql.Username = UserName;
+        postgreSql.Password = Password;
+        postgreSql.DatabaseName = DatabaseName;
+        postgreSql.SchemaName = SchemaName;
+
+        configFile.Save(ConfigurationSaveMode.Modified);
+    }
+
+    public static string? BdConnection(string key)
+    {
+        return ConfigurationManager.AppSettings[key];
+    }
+
+    public static string? GetConfig(string key)
     {
         return ConfigurationManager.AppSettings[key];
     }

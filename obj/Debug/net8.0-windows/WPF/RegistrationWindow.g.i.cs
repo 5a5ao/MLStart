@@ -77,7 +77,7 @@ namespace Program {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MLStart;V1.0.0.0;component/wpf/registrationwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MLStart;component/wpf/registrationwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\WPF\RegistrationWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
