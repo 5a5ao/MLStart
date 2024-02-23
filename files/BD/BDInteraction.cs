@@ -1,5 +1,4 @@
 ﻿using Npgsql;
-using System.Configuration;
 
 namespace Program
 {
@@ -9,15 +8,17 @@ namespace Program
 
         //static string connString = "Host=localhost;Port=5432;Username=postgres;Password=admin;Database=MLStartUsers;";
         public static string? outputString;
-        static string? connString;
+        // static string? connString;
 
         #endregion
 
         #region Methods
 
+        #region BDConnectinon
+
         public static NpgsqlConnection Connection()
         {
-            GetConnection();
+            string connString = BdManager.GetConnection();
             try
             {
                 NpgsqlConnection? conn = new NpgsqlConnection(connString);
@@ -32,18 +33,9 @@ namespace Program
             }
         }
 
-        public static string GetConnection()
-        {
-            NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder();
-            builder.Host = ConfigManager.GetBdConfig("Host");
-            builder.Port = Convert.ToInt32(ConfigManager.GetBdConfig("Port"));
-            builder.Username = ConfigManager.GetBdConfig("Username");
-            builder.Password = ConfigManager.GetBdConfig("Password");
-            builder.Database = ConfigManager.GetBdConfig("DatabaseName");
-            builder.SearchPath = ConfigManager.GetBdConfig("SchemaName");
+        #endregion
 
-            return connString = builder.ConnectionString;
-        }
+        #region Users
 
         public static void AddUser(string login, string password)
         {
@@ -108,6 +100,8 @@ namespace Program
                 }
             }
         }
+
+        #endregion
 
         #endregion
     }

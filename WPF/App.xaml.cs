@@ -28,6 +28,7 @@ public partial class App : Application
     {
         base.OnStartup(e);
         ConfigManager configManager = new ConfigManager();
+        BDInteraction.Connection();
         // Создаем и отображаем новое окно
         var SelectScreen = new SelectWindow();
         SelectScreen.Show();
