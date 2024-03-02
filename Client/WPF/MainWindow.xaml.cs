@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Net.Sockets;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -9,6 +10,7 @@ public partial class MainWindow : Window
     #region Data
 
     private StringBuilder outputText = new StringBuilder();
+    private TcpClient client = new TcpClient();
 
     #endregion
 
@@ -17,33 +19,80 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        ConnectToServer();
 
-      
-        // Запускаем цикл while в другом потоке для избежания блокировки пользовательского интерфейса
-        System.Threading.Tasks.Task.Run(() =>
-        {
-            while (true)
-            {
-                Thread.Sleep(100);
-                Storyteller storyteller = new Storyteller();
-                storyteller.TextUpdated += AppendToOutput;
-                storyteller.TellStory();
 
-                Thread.Sleep(int.Parse(ConfigManager.GetConfig("Thread")));
+        //// Запускаем цикл while в другом потоке для избежания блокировки пользовательского интерфейса
+        //System.Threading.Tasks.Task.Run(() =>
+        //{
+        //    while (true)
+        //    {
+        //        Thread.Sleep(100);
+        //        Storyteller storyteller = new Storyteller();
+        //        storyteller.TextUpdated += AppendToOutput;
+        //        storyteller.TellStory();
 
-                Dispatcher.Invoke(() =>
-                {
-                    outputText.Clear();
-                    textBlock.Text = "";
-                });
-            }
-        });
+        //        Thread.Sleep(int.Parse(ConfigManager.GetConfig("Thread")));
+
+        //        Dispatcher.Invoke(() =>
+        //        {
+        //            outputText.Clear();
+        //            textBlock.Text = "";
+        //        });
+        //    }
+        //});
 
     }
 
     #endregion
 
     #region Methods
+
+    private async void ConnectToServer()
+    {
+        try
+        {
+            await client.ConnectAsync("127.0.0.1", 8888);
+            ReceiveDataFromServer();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error connecting to server: " + ex.Message);
+        }
+    }
+
+    private async void ReceiveDataFromServer()
+    {
+        try
+        {
+            NetworkStream stream = client.GetStream();
+            byte[] buffer = new byte[1024];
+
+            while (true)
+            {
+                int bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
+                string receivedData = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+
+                // Выводим полученные данные в интерфейс
+                Dispatcher.Invoke(() =>
+                {
+                    textBlock.Text += receivedData + Environment.NewLine;
+                });
+
+                Thread.Sleep(int.Parse(ConfigManager.GetConfig("Thread")));
+
+                Dispatcher.Invoke(() =>
+                {
+                    textBlock.Text = receivedData + Environment.NewLine;
+                });
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error receiving data from server: " + ex.Message);
+        }
+    }
+
 
 
     // Метод для добавления текста в TextBlock
@@ -108,4 +157,3 @@ public partial class MainWindow : Window
 
     #endregion
 }
-

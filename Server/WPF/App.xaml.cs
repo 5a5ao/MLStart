@@ -16,9 +16,11 @@ public partial class App : Application
     {
 
         var app = new App();
-        app.Run();
-        MainWindow mainWindow = new MainWindow();
+
+        var mainWindow = new MainWindow();
         mainWindow.Show();
+
+        app.Run();
 
     }
 

@@ -10,4 +10,8 @@
     <UseWPF>True</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Client\MLStart.csproj" />
+  </ItemGroup>
+
 </Project>

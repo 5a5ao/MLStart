@@ -59,7 +59,7 @@ namespace Program {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Server;component/wpf/app.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Server;V1.0.0.0;component/wpf/app.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\WPF\App.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
