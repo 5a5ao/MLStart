@@ -78,8 +78,7 @@ public partial class MainWindow : Window
                 {
                     textBlock.Text += receivedData + Environment.NewLine;
                 });
-
-                Thread.Sleep(int.Parse(ConfigManager.GetConfig("Thread")));
+                
 
                 Dispatcher.Invoke(() =>
                 {
