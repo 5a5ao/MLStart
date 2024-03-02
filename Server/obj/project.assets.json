@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\project\\MLStart\\Server\\Server.csproj",
+      "projectUniqueName": "F:\\project\\MLStart\\MLStart\\Server\\Server.csproj",
       "projectName": "Server",
-      "projectPath": "F:\\project\\MLStart\\Server\\Server.csproj",
+      "projectPath": "F:\\project\\MLStart\\MLStart\\Server\\Server.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "F:\\project\\MLStart\\Server\\obj\\",
+      "outputPath": "F:\\project\\MLStart\\MLStart\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

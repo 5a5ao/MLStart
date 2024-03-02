@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\project\\MLStart\\MLStart\\Server\\Server.csproj": {}
+    "F:\\project\\MLStart\\MLStart\\Client\\MLStart.csproj": {}
   },
   "projects": {
-    "F:\\project\\MLStart\\MLStart\\Server\\Server.csproj": {
+    "F:\\project\\MLStart\\MLStart\\Client\\MLStart.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\project\\MLStart\\MLStart\\Server\\Server.csproj",
-        "projectName": "Server",
-        "projectPath": "F:\\project\\MLStart\\MLStart\\Server\\Server.csproj",
+        "projectUniqueName": "F:\\project\\MLStart\\MLStart\\Client\\MLStart.csproj",
+        "projectName": "MLStart",
+        "projectPath": "F:\\project\\MLStart\\MLStart\\Client\\MLStart.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "F:\\project\\MLStart\\MLStart\\Server\\obj\\",
+        "outputPath": "F:\\project\\MLStart\\MLStart\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -43,6 +43,28 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "Extended.Wpf.Toolkit": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Serilog.Sinks.File": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -4,7 +4,7 @@
 winexe
 C#
 .cs
-F:\project\MLStart\Server\obj\Debug\net8.0-windows\
+F:\project\MLStart\MLStart\Server\obj\Debug\net8.0-windows\
 Server
 none
 false
@@ -16,5 +16,5 @@ TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 198-294894759
 WPF\App.xaml;WPF\MainWindow.xaml;
 
-False
+True
 

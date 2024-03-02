@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5zQYLPxBb0edBModCxRkMq03u04hIefRZ9+9mWukkmCcxyT+eLtiuWJ2nuiYPtvVlLc4UPwFwKKEKSb3+PSGvQ==",
+  "dgSpecHash": "q1OZhqrt9OcTFcldxMzn3A61zmMuurSyRmra/797eOD0sxqyphebbOPLyjUPpazFc62w76HYCINma0XRp3dNgQ==",
   "success": true,
-  "projectFilePath": "F:\\project\\MLStart\\Server\\Server.csproj",
+  "projectFilePath": "F:\\project\\MLStart\\MLStart\\Server\\Server.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
